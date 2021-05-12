@@ -7,7 +7,7 @@ Criar ambiente virtual
 virtualenv venv
 
 Ativar ambiente virtual
-source venv/bin /activate
+source venv/bin/activate
 
 Instalar requisitos do ambiente virtual
 pip install -r requirements.txt
@@ -17,7 +17,7 @@ python -m cmm -h
 
 Testar arquivo.cmm
 python -m cmm input.cmm
-python-m cmm zetta.cmm4
+python -m cmm zetta.cmm4
 
 # Setup 
 
