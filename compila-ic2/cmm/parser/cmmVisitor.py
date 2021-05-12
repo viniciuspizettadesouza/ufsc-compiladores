@@ -1,4 +1,4 @@
-# Generated from /home/pizetta/git/compiladores/compila ic2/cmm/parser/cmm.g4 by ANTLR 4.9.1
+# Generated from /home/pizetta/git/compiladores/compila-ic2/cmm/parser/cmm.g4 by ANTLR 4.9.1
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .cmmParser import cmmParser

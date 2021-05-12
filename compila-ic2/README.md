@@ -13,7 +13,9 @@ Instalar requisitos do ambiente virtual
 pip install -r requirements.txt
 
 Compilar em python
-python -m cmm -h
+python -m cmm -h, `não esta funcionando, use o comando abaixo`
+
+python3 -m cmm input.cmm
 
 Testar arquivo.cmm
 python -m cmm input.cmm
@@ -41,9 +43,9 @@ usage: cmm [-h] [-o] input
 C-- interpreter
 
 positional arguments:
-  input       source code
+input      source code
 
 optional arguments:
-  -h, --help  show this help message and exit
-  -o          python output
+-h, --help  show this help message and exit
+-o          python output
 ```
