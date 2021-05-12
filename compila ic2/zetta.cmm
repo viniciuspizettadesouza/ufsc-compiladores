@@ -1,0 +1,8 @@
+def main() {
+    fruit = 2;
+    switch(fruit) {
+      case 'Apple': print "apple";
+    }
+    return 0;
+}
+
