@@ -19,6 +19,10 @@ Testar arquivo.cmm
 python -m cmm input.cmm
 python -m cmm zetta.cmm4
 
+# Exemplo do Evandro
+
+https://gitlab.com/evandro-crr/cmm/-/tree/lambda
+
 # Setup 
 
 Install Python packages
