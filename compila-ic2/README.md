@@ -3,23 +3,27 @@ ubuntu, vscode, python, pip, antlr
 
 # TUTORIAL
 
-Criar ambiente virtual
+### Criar ambiente virtual
 virtualenv venv
 
-Ativar ambiente virtual
+### Ativar ambiente virtual
 source venv/bin/activate
 
-Instalar requisitos do ambiente virtual
+### Instalar requisitos do ambiente virtual
 pip install -r requirements.txt
 
-Compilar em python
-python -m cmm -h, `não esta funcionando, use o comando abaixo`
+### Compilar em python
+python -m cmm -h
 
-python3 -m cmm input.cmm
-
-Testar arquivo.cmm
+### Testar arquivo.cmm
 python -m cmm input.cmm
 python -m cmm zetta.cmm4
+
+## Meu jeito de compilar
+deletar todos os arquivos ".interp, .tokens, e .py" da pasta /parser, restando apenas o arquivo cmm.g4
+depois executar
+
+python3 -m cmm input.cmm
 
 # Exemplo do Evandro
 
