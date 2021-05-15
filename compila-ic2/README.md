@@ -15,8 +15,11 @@ pip install -r requirements.txt
 ### Compilar em python
 python3 -m vjj -h
 
-### Testar arquivo.vjj
+### Testar arquivo.vjj FUNCIONANDO
 python3 -m vjj input.vjj
+python3 -m vjj zetta.vjj
+
+### Testar arquivo.vjj COM ERRO
 python3 -m vjj zetta.vjj
 
 ## Meu jeito de compilar
