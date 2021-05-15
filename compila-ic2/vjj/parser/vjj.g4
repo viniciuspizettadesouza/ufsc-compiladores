@@ -2,41 +2,41 @@ grammar vjj;
 
 start: func* EOF;
 
-func: 'def' name = ID '(' args? ')' statms;
+func: DEF name = ID '(' args? ')' statms;
 
 args: ID (',' ID)*;
 
 statms: '{' statm* '}' | statm;
 
 statm:
-	ID '=' expr ';'													# assign
-	| 'print' expr ';'												# print
-	| 'if' cond = expr then = statms ('else' otherwise = statms)?	# if
-	| 'while' cond = expr statms									# while
-	| 'for' '(' cond = expr ';' cond = expr ';' expr ')' statms		# for
-	| 'switch' '(' atom ')' switchStatms+							# switch
-	| 'class' classdef												# class
-	| 'return' expr ';'												# return;
+	ID '=' expr ';'												# assign
+	| PRINT expr ';'											# print
+	| IF cond = expr then = statms (ELSE otherwise = statms)?	# if
+	| WHILE cond = expr statms									# while
+	| FOR '(' cond = expr ';' cond = expr ';' expr ')' statms	# for
+	| SWITCH '(' atom ')' switchStatms+							# switch
+	| CLASS classdef											# class
+	| RETURN expr ';'											# return;
 
 whileStatement: '{' statm* '}';
 
-switchStatms: '{' 'case' atom ':' switchStatms* '}';
+switchStatms: '{' CASE atom ':' switchStatms* '}';
 
 types: TYPE_INT | TYPE_FLOAT | TYPE_BOOLEAN | TYPE_NULL;
 
-classdef: 'class' atom ('(' (arglist)? ')')? ':' statms;
+classdef: CLASS atom ('(' (arglist)? ')')? ':' statms;
 
 arglist: argument (',' argument)* (',')?;
 
 argument: ( test '=' test | '**' test | '*' test);
 
-test: or_test ('if' or_test 'else' test)?;
+test: or_test (IF or_test ELSE test)?;
 
-or_test: and_test ('or' and_test)*;
+or_test: and_test (OR and_test)*;
 
-and_test: not_test ('and' not_test)*;
+and_test: not_test (AND not_test)*;
 
-not_test: 'not' not_test | comparison;
+not_test: NOT not_test | comparison;
 
 comparison: expr (expr expr)*;
 
@@ -60,16 +60,27 @@ atom:
 	| NULL
 	| BOOLEAN
 	| ID
-	| 'input'
+	| INPUT
 	| call;
 
 TYPE_INT: 'int';
 TYPE_FLOAT: 'float';
 TYPE_BOOLEAN: 'bool';
 TYPE_NULL: 'null';
+DEF: 'def';
+RETURN: 'return';
+PRINT: 'print';
+CASE: 'case';
+IF: 'if';
+ELSE: 'else';
+WHILE: 'while';
+FOR: 'for';
+SWITCH: 'switch';
+OR: 'or';
+AND: 'and';
+NOT: 'not';
 CLASS: 'class';
 INPUT: 'input';
-ELSE: 'else';
 ID: [a-zA-Z]+ [0-9a-zA-Z]*;
 INT: [0-9]+;
 FLOAT: [0-9]+ '.' [0-9]+;
