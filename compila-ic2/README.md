@@ -25,6 +25,12 @@ depois executar
 
 python3 -m cmm input.cmm
 
+OU
+
+python3 -m {nome_da_pasta}} {nome_arquivo}.txt
+
+Exemplo - python3 -m cmm input.txt
+
 # Exemplo do Evandro
 
 https://gitlab.com/evandro-crr/cmm/-/tree/lambda

@@ -37,16 +37,16 @@ def main():
     tree = parser.start() # Get AST
 
     # Transverse AST to generate python ast 
-    visitor = astVisitor(args.input)
-    ast = visitor.visitStart(tree)
+    # visitor = astVisitor(args.input)
+    # ast = visitor.visitStart(tree)
 
-    code = compile(source=ast, filename=args.input, mode='exec') 
+    # code = compile(source=ast, filename=args.input, mode='exec') 
 
-    exec(code, globals())
+    # exec(code, globals())
     
-    if args.o:
-        with open(args.o, 'w') as file:
-            file.write(decompile(ast))
+    # if args.o:
+    #     with open(args.o, 'w') as file:
+    #         file.write(decompile(ast))
 
 if __name__ == '__main__':
     main()
