@@ -23,13 +23,13 @@ python -m cmm zetta.cmm4
 deletar todos os arquivos ".interp, .tokens, e .py" da pasta /parser, restando apenas o arquivo cmm.g4
 depois executar
 
-python3 -m cmm input.cmm
+python3 -m vjj input.vjj
 
 OU
 
 python3 -m {nome_da_pasta}} {nome_arquivo}.txt
 
-Exemplo - python3 -m cmm input.txt
+Exemplo - python3 -m vjj input.txt
 
 # Exemplo do Evandro
 

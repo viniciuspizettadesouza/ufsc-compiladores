@@ -4,15 +4,15 @@ import argparse
 from ast_decompiler import decompile
 
 try:
-    from .parser.cmmLexer import cmmLexer
-    from .parser.cmmParser import cmmParser
+    from .parser.vjjLexer import vjjLexer
+    from .parser.vjjParser import vjjParser
 except ImportError:
     # Generate ANTLR parser from g4 file
     from .generate_parser import generate_parser
-    generate_parser(path.join(path.dirname(__file__), 'parser/cmm.g4'))
+    generate_parser(path.join(path.dirname(__file__), 'parser/vjj.g4'))
 
-    from .parser.cmmLexer import cmmLexer
-    from .parser.cmmParser import cmmParser
+    from .parser.vjjLexer import vjjLexer
+    from .parser.vjjParser import vjjParser
 
 # import astVisitor after the try-except
 from .astVisitor import astVisitor
@@ -21,7 +21,7 @@ from .astVisitor import astVisitor
 def main():
 
     # Argument parser
-    parser_args = argparse.ArgumentParser(prog='cmm', description='C-- interpreter')
+    parser_args = argparse.ArgumentParser(prog='vjj', description='C-- interpreter')
     parser_args.add_argument('input', type=str, help='source code')
     parser_args.add_argument('-o', metavar='', type=str, default=None, help='python output')
 
@@ -30,9 +30,9 @@ def main():
 
     input_stream = FileStream(args.input)
 
-    lexer = cmmLexer(input_stream)
+    lexer = vjjLexer(input_stream)
     stream = CommonTokenStream(lexer)
-    parser = cmmParser(stream)
+    parser = vjjParser(stream)
 
     tree = parser.start() # Get AST
 
