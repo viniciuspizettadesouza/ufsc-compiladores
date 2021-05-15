@@ -139,4 +139,3 @@ class astVisitor(vjjVisitor):
         print_call = ast.Call(func=ast.Name(id='print', ctx=ast.Load()),
                               args=[self.visit(ctx.expr())], keywords=[])
         return ast.Expr(value=print_call)
-
