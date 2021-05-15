@@ -3,7 +3,7 @@ from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .vjjParser import vjjParser
 else:
-    from vjjParser import vjjParser
+    from .vjjParser import vjjParser
 
 # This class defines a complete generic visitor for a parse tree produced by vjjParser.
 
