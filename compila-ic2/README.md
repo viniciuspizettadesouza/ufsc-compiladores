@@ -13,14 +13,14 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 ### Compilar em python
-python -m cmm -h
+python -m vjj -h
 
-### Testar arquivo.cmm
-python -m cmm input.cmm
-python -m cmm zetta.cmm4
+### Testar arquivo.vjj
+python -m vjj input.vjj
+python -m vjj zetta.vjj4
 
 ## Meu jeito de compilar
-deletar todos os arquivos ".interp, .tokens, e .py" da pasta /parser, restando apenas o arquivo cmm.g4
+deletar todos os arquivos ".interp, .tokens, e .py" da pasta /parser, restando apenas o arquivo vjj.g4
 depois executar
 
 python3 -m vjj input.vjj
@@ -33,7 +33,7 @@ Exemplo - python3 -m vjj input.txt
 
 # Exemplo do Evandro
 
-https://gitlab.com/evandro-crr/cmm/-/tree/lambda
+https://gitlab.com/evandro-crr/vjj/-/tree/lambda
 
 # Setup 
 
@@ -47,8 +47,8 @@ pip install -r requirement.txt
 # Usage
 
 ```shell
-$ python -m cmm -h
-usage: cmm [-h] [-o] input
+$ python -m vjj -h
+usage: vjj [-h] [-o] input
 
 C-- interpreter
 
