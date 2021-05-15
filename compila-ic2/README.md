@@ -13,11 +13,11 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 ### Compilar em python
-python -m vjj -h
+python3 -m vjj -h
 
 ### Testar arquivo.vjj
-python -m vjj input.vjj
-python -m vjj zetta.vjj4
+python3 -m vjj input.vjj
+python3 -m vjj zetta.vjj
 
 ## Meu jeito de compilar
 deletar todos os arquivos ".interp, .tokens, e .py" da pasta /parser, restando apenas o arquivo vjj.g4
