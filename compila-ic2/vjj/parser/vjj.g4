@@ -24,21 +24,7 @@ switchStatms: '{' CASE atom ':' switchStatms* '}';
 
 types: TYPE_INT | TYPE_FLOAT | TYPE_BOOLEAN | TYPE_NULL;
 
-classdef: CLASS atom ('(' (arglist)? ')')? ':' statms;
-
-arglist: argument (',' argument)* (',')?;
-
-argument: ( test '=' test | '**' test | '*' test);
-
-test: or_test (IF or_test ELSE test)?;
-
-or_test: and_test (OR and_test)*;
-
-and_test: not_test (AND not_test)*;
-
-not_test: NOT not_test | comparison;
-
-comparison: expr (expr expr)*;
+classdef: CLASS atom ('(' (args)? ')')? ':' statms;
 
 call: name = ID '(' exprs? ')';
 

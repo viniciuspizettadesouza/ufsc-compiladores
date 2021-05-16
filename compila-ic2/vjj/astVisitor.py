@@ -85,6 +85,12 @@ class astVisitor(vjjVisitor):
             return ast.Name(id=id, ctx=ast.Load())
         elif ctx.INT():
             return ast.Constant(value=int(str(ctx.INT())))
+        elif ctx.FLOAT():
+            return ast.Constant(value=int(str(ctx.FLOAT())))
+        elif ctx.NULL():
+            return ast.Constant(value=int(str(ctx.NULL())))
+        elif ctx.BOOLEAN():
+            return ast.Constant(value=int(str(ctx.BOOLEAN())))
         elif ctx.call():
             return self.visit(ctx.call())
         elif ctx.INPUT():
@@ -98,10 +104,11 @@ class astVisitor(vjjVisitor):
         if ctx.right: # >, <, >=, <=, ==, != 
             right = self.visit(ctx.right)
 
-            op_map = {'<' : ast.Lt,
+            op_map = {
                       '>' : ast.Gt,
-                      '>=': ast.LtE,
+                      '<' : ast.Lt,
                       '<=': ast.GtE,
+                      '>=': ast.LtE,
                       '==': ast.Eq,
                       '!=': ast.NotEq}
 
@@ -139,3 +146,24 @@ class astVisitor(vjjVisitor):
         print_call = ast.Call(func=ast.Name(id='print', ctx=ast.Load()),
                               args=[self.visit(ctx.expr())], keywords=[])
         return ast.Expr(value=print_call)
+
+    def visitFor(self, ctx:vjjParser.ForContext):
+        return self.visitChildren(ctx)
+
+    def visitSwitch(self, ctx:vjjParser.SwitchContext):
+        return self.visitChildren(ctx)
+         
+    def visitClass(self, ctx:vjjParser.ClassContext):
+        return self.visitChildren(ctx)
+
+    def visitWhileStatement(self, ctx:vjjParser.WhileStatementContext):
+        return [self.visit(stmt) for stmt in ctx.statm()]
+
+    def visitSwitchStatms(self, ctx:vjjParser.SwitchStatmsContext):
+        return self.visitChildren(ctx)
+
+    def visitTypes(self, ctx:vjjParser.TypesContext):
+        return self.visitChildren(ctx)
+
+    def visitClassdef(self, ctx:vjjParser.ClassdefContext):
+        return self.visitChildren(ctx)
