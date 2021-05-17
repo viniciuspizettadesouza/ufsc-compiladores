@@ -22,7 +22,12 @@ whileStatement: '{' statm* '}';
 
 switchStatms: '{' CASE atom ':' switchStatms* '}';
 
-types: TYPE_INT | TYPE_FLOAT | TYPE_BOOLEAN | TYPE_NULL;
+types:
+	TYPE_INT
+	| TYPE_BOOLEAN
+	| TYPE_FLOAT
+	| TYPE_STRING
+	| TYPE_NULL;
 
 classdef: CLASS atom ('(' (args)? ')')? ':' statms;
 
@@ -43,6 +48,7 @@ atom:
 	'(' expr ')'
 	| INT
 	| FLOAT
+	| STRING
 	| NULL
 	| BOOLEAN
 	| ID
@@ -52,6 +58,7 @@ atom:
 TYPE_INT: 'int';
 TYPE_FLOAT: 'float';
 TYPE_BOOLEAN: 'bool';
+TYPE_STRING: 'string';
 TYPE_NULL: 'null';
 DEF: 'def';
 RETURN: 'return';
@@ -70,6 +77,7 @@ INPUT: 'input';
 ID: [a-zA-Z]+ [0-9a-zA-Z]*;
 INT: [0-9]+;
 FLOAT: [0-9]+ '.' [0-9]+;
+STRING: [0-9a-zA-Z]+;
 NULL: 'None';
 BOOLEAN: 'True' | 'False';
 WS: [ \r\n\t]+ -> skip;
